@@ -35,7 +35,7 @@ public class ConversionServiceTests
     public async Task ConversionService_ConvertAsync_NoTasks_ReturnsEmptyResultAndLogsWarning()
     {
         var service = new ConversionService(_wrapperMock.Object, _loggerMock.Object, _config);
-        var result = await service.ConvertAsync(new List<ConversionTask>(), new List<ConversionTask>());
+        var result = await service.ConvertAsync([], []);
 
         Assert.AreEqual(0, result.TotalFiles);
         _loggerMock.Verify(l => l.LogWarning(It.IsAny<string>()), Times.Once);
@@ -46,9 +46,9 @@ public class ConversionServiceTests
     {
         var tasks = new List<ConversionTask>
         {
-            new ConversionTask { SourceFilePath = "a.flac", DestinationFilePath = "out/a.mp3", FileType = FileType.Flac },
-            new ConversionTask { SourceFilePath = "b.flac", DestinationFilePath = "out/b.mp3", FileType = FileType.Flac },
-            new ConversionTask { SourceFilePath = "c.mp3", DestinationFilePath = "out/c.mp3", FileType = FileType.Mp3 }
+            new() { SourceFilePath = "a.flac", DestinationFilePath = "out/a.mp3", FileType = FileType.Flac },
+            new() { SourceFilePath = "b.flac", DestinationFilePath = "out/b.mp3", FileType = FileType.Flac },
+            new() { SourceFilePath = "c.mp3", DestinationFilePath = "out/c.mp3", FileType = FileType.Mp3 }
         };
 
         _wrapperMock.Setup(w => w.ConvertFlacToMp3(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
@@ -68,13 +68,13 @@ public class ConversionServiceTests
     {
         var tasks = new List<ConversionTask>
         {
-            new ConversionTask { SourceFilePath = "a.flac", DestinationFilePath = "out/a.mp3", FileType = FileType.Flac }
+            new() { SourceFilePath = "a.flac", DestinationFilePath = "out/a.mp3", FileType = FileType.Flac }
         };
 
         _wrapperMock.Setup(w => w.ConvertFlacToMp3(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(false);
 
         var service = new ConversionService(_wrapperMock.Object, _loggerMock.Object, _config);
-        var result = await service.ConvertAsync(tasks, new List<ConversionTask>());
+        var result = await service.ConvertAsync(tasks, []);
 
         Assert.AreEqual(1, result.TotalFiles);
         Assert.AreEqual(0, result.ConvertedFlacCount);
@@ -89,13 +89,13 @@ public class ConversionServiceTests
     {
         var tasks = new List<ConversionTask>
         {
-            new ConversionTask { SourceFilePath = "a.flac", DestinationFilePath = "out/a.mp3", FileType = FileType.Flac }
+            new() { SourceFilePath = "a.flac", DestinationFilePath = "out/a.mp3", FileType = FileType.Flac }
         };
 
         _wrapperMock.Setup(w => w.ConvertFlacToMp3(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Throws(new System.Exception("boom"));
 
         var service = new ConversionService(_wrapperMock.Object, _loggerMock.Object, _config);
-        var result = await service.ConvertAsync(tasks, new List<ConversionTask>());
+        var result = await service.ConvertAsync(tasks, []);
 
         Assert.AreEqual(1, result.TotalFiles);
         Assert.AreEqual(1, result.FailedCount);
