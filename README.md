@@ -1,3 +1,6 @@
+<!-- BADGE:dotnet-tests:start -->
+[![.NET Tests](https://github.com/RobertBickers/flac-off/actions/workflows/dotnet-tests.yml/badge.svg?branch=add-pipeline-automation)](https://github.com/RobertBickers/flac-off/actions/workflows/dotnet-tests.yml)
+<!-- BADGE:dotnet-tests:end -->
 # FLAC-to-MP3 Directory Converter
 
 A .NET 8 console application that recursively converts FLAC files to 320kbps MP3s while copying existing MP3s as-is. Includes automated ffmpeg dependency management, progress tracking, dual logging, and retry capabilities.
