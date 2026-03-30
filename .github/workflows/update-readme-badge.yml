@@ -52,7 +52,7 @@ jobs:
             # If markers exist, replace between them; otherwise insert at top
             if grep -q "${START}" "$README"; then
               # use perl to replace across lines
-              perl -0777 -pe "s/\Q${START}\E.*?\Q${END}\E/${START}\n${BADGE}\n${END}/s" "$README" > "$README.tmp" && mv "$README.tmp" "$README"
+              perl -0777 -i -pe "s/\Q${START}\E.*?\Q${END}\E/\Q${START}\E\n\Q${BADGE}\E\n\Q${END}\E/s" "$README"
             else
               # insert at top
               tmp=$(mktemp)
