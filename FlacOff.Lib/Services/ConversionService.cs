@@ -54,7 +54,7 @@ public class ConversionService(IConversionWrapper conversionWrapper, ILogger log
             {
                 var completedCount = progressTracker.CurrentFileIndex;
                 var barDisplay = ProgressTracker.FormatProgressBar(percentage, completedCount, progressTracker.TotalFiles);
-                Console.WriteLine($"Converting {barDisplay}");
+                logger.LogInfo($"Converting {barDisplay}");
             }
         }
     }
@@ -81,7 +81,7 @@ public class ConversionService(IConversionWrapper conversionWrapper, ILogger log
                     {
                         var completedCount = progressTracker.CurrentFileIndex;
                         var barDisplay = ProgressTracker.FormatProgressBar(percentage, completedCount, progressTracker.TotalFiles);
-                        Console.WriteLine($"Converting {barDisplay}");
+                        logger.LogInfo($"Converting {barDisplay}");
                     }
                 }
                 finally

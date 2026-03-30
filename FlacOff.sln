@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlacOff", "FlacOff\FlacOff.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlacOff.Lib", "FlacOff.Lib\FlacOff.Lib.csproj", "{12C43380-B002-4CD3-8811-F083F99B2086}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlacOff.Lib.Tests", "FlacOff.Lib.Tests\FlacOff.Lib.Tests.csproj", "{ABB87535-83F6-45AE-B90F-0FE382C3792B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{12C43380-B002-4CD3-8811-F083F99B2086}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12C43380-B002-4CD3-8811-F083F99B2086}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12C43380-B002-4CD3-8811-F083F99B2086}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABB87535-83F6-45AE-B90F-0FE382C3792B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABB87535-83F6-45AE-B90F-0FE382C3792B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABB87535-83F6-45AE-B90F-0FE382C3792B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABB87535-83F6-45AE-B90F-0FE382C3792B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
