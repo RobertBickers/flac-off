@@ -45,6 +45,17 @@ public class ConfigLoader(ILogger logger) : IConfigLoader
             config.InputDirectory = ExpandPath(config.InputDirectory);
             config.OutputDirectory = ExpandPath(config.OutputDirectory);
 
+            // Normalize to absolute paths so callers get consistent, resolved paths
+            if (!string.IsNullOrWhiteSpace(config.InputDirectory))
+            {
+                config.InputDirectory = Path.GetFullPath(config.InputDirectory);
+            }
+
+            if (!string.IsNullOrWhiteSpace(config.OutputDirectory))
+            {
+                config.OutputDirectory = Path.GetFullPath(config.OutputDirectory);
+            }
+
             ValidateConfig(config);
 
             logger.LogInfo($"Configuration loaded successfully");
