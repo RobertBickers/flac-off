@@ -1,0 +1,79 @@
+name: Update README Test Badge
+
+on:
+  push:
+    branches: ['**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme-badge:
+    name: Update README badge for triggering branch
+    runs-on: ubuntu-latest
+    # Avoid running when the actor is the GitHub Actions bot (prevents loop when we push from this action)
+    if: github.actor != 'github-actions[bot]'
+
+    steps:
+      - name: Checkout triggering ref
+        uses: actions/checkout@v4
+        with:
+          # check out the ref that triggered this workflow (branch/tag/commit)
+          ref: ${{ github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Prepare badge and README
+        env:
+          REPO: ${{ github.repository }}
+          TRIGGER_BRANCH: ${{ github.ref_name }}
+          WORKFLOW_FILE: dotnet-tests.yml
+        run: |
+          README=README.md
+          START='<!-- BADGE:dotnet-tests:start -->'
+          END='<!-- BADGE:dotnet-tests:end -->'
+
+          BADGE="[![.NET Tests](https://github.com/${REPO}/actions/workflows/${WORKFLOW_FILE}/badge.svg?branch=${TRIGGER_BRANCH})](https://github.com/${REPO}/actions/workflows/${WORKFLOW_FILE})"
+
+          echo "Updating README badge to reference branch: ${TRIGGER_BRANCH}"
+
+          if [ ! -f "$README" ]; then
+            echo "README not found at repository root, creating new README.md"
+            echo "${START}" > $README
+            echo "$BADGE" >> $README
+            echo "${END}" >> $README
+          else
+            # If markers exist, replace between them; otherwise insert at top
+            if grep -q "${START}" "$README"; then
+              # use perl to replace across lines
+              perl -0777 -pe "s/\Q${START}\E.*?\Q${END}\E/${START}\n${BADGE}\n${END}/s" "$README" > "$README.tmp" && mv "$README.tmp" "$README"
+            else
+              # insert at top
+              tmp=$(mktemp)
+              echo "${START}" > "$tmp"
+              echo "$BADGE" >> "$tmp"
+              echo "${END}" >> "$tmp"
+              cat "$README" >> "$tmp"
+              mv "$tmp" "$README"
+            fi
+          fi
+
+      - name: Commit and push README changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git add README.md || true
+          if git diff --cached --quiet; then
+            echo "No README changes to commit"
+            exit 0
+          fi
+
+          git commit -m "chore(ci): update README badge for branch ${GITHUB_REF_NAME:-${GITHUB_HEAD_REF}}" || true
+          # Push the update back to the triggering branch
+          git push origin HEAD:${{ github.ref_name }}
