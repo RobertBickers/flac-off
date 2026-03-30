@@ -1,5 +1,6 @@
+
 <!-- BADGE:dotnet-tests:start -->
-[![.NET Tests](https://github.com/RobertBickers/flac-off/actions/workflows/dotnet-tests.yml/badge.svg?branch=add-pipeline-automation)](https://github.com/RobertBickers/flac-off/actions/workflows/dotnet-tests.yml)
+[![.NET Tests](https://github.com/RobertBickers/flac-off/actions/workflows/dotnet-tests.yml/badge.svg?branch=main)](https://github.com/RobertBickers/flac-off/actions/workflows/dotnet-tests.yml)
 <!-- BADGE:dotnet-tests:end -->
 # FLAC-to-MP3 Directory Converter
 
