@@ -4,7 +4,7 @@
 <!-- BADGE:dotnet-tests:end -->
 # FLAC-to-MP3 Directory Converter
 
-A .NET 8 console application that recursively converts FLAC files to 320kbps MP3s while copying existing MP3s as-is. Includes automated ffmpeg dependency management, progress tracking, dual logging, and retry capabilities.
+A .NET 10 console application that recursively converts FLAC files to 320kbps MP3s while copying existing MP3s as-is. Includes automated ffmpeg dependency management, progress tracking, dual logging, and retry capabilities.
 
 This tool is designed for users who want to convert their music libraries from FLAC to MP3 format while preserving existing MP3 files. It provides a seamless experience with automatic ffmpeg installation, real-time progress updates, and comprehensive logging.
 
@@ -42,7 +42,7 @@ Output: /output/
 
 ## Requirements
 
-- .NET 8 SDK or Runtime
+- .NET 10 SDK or Runtime
 - macOS (currently homebrew-dependent; Windows/Linux support planned if there's interest)
 
 ## Installation
