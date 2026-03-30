@@ -1,0 +1,34 @@
+# Build results
+bin/
+obj/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+
+# IDE
+.vs/
+.vscode/
+*.sln.iml
+*.swp
+*.swo
+*~
+.DS_Store
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.VC.db
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+# Rider
+.idea/
+*.sln.iml
+
+# JSON config with user paths
+appsettings.json
