@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlacOff, "FlacOff/FlacOff.csproj", "{F4AD0C21-1440-4FAB-AE39-862015934B5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlacOff", "FlacOff\FlacOff.csproj", "{2513FC72-B533-4AFC-B6EF-E8E2D7973334}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlacOff.Lib", "FlacOff.Lib\FlacOff.Lib.csproj", "{12C43380-B002-4CD3-8811-F083F99B2086}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4AD0C21-1440-4FAB-AE39-862015934B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4AD0C21-1440-4FAB-AE39-862015934B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4AD0C21-1440-4FAB-AE39-862015934B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4AD0C21-1440-4FAB-AE39-862015934B5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2513FC72-B533-4AFC-B6EF-E8E2D7973334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2513FC72-B533-4AFC-B6EF-E8E2D7973334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2513FC72-B533-4AFC-B6EF-E8E2D7973334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2513FC72-B533-4AFC-B6EF-E8E2D7973334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12C43380-B002-4CD3-8811-F083F99B2086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C43380-B002-4CD3-8811-F083F99B2086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C43380-B002-4CD3-8811-F083F99B2086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12C43380-B002-4CD3-8811-F083F99B2086}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
