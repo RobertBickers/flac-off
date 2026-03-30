@@ -54,8 +54,7 @@ public class ConversionService(IConversionWrapper conversionWrapper, ILogger log
             {
                 var completedCount = progressTracker.CurrentFileIndex;
                 var barDisplay = ProgressTracker.FormatProgressBar(percentage, completedCount, progressTracker.TotalFiles);
-                var silent = Environment.GetEnvironmentVariable("FLACOFF_SILENT_PROGRESS") == "1";
-                if (!silent) Console.WriteLine($"Converting {barDisplay}");
+                logger.LogInfo($"Converting {barDisplay}");
             }
         }
     }
@@ -82,8 +81,7 @@ public class ConversionService(IConversionWrapper conversionWrapper, ILogger log
                     {
                         var completedCount = progressTracker.CurrentFileIndex;
                         var barDisplay = ProgressTracker.FormatProgressBar(percentage, completedCount, progressTracker.TotalFiles);
-                        var silent = Environment.GetEnvironmentVariable("FLACOFF_SILENT_PROGRESS") == "1";
-                        if (!silent) Console.WriteLine($"Converting {barDisplay}");
+                        logger.LogInfo($"Converting {barDisplay}");
                     }
                 }
                 finally
