@@ -6,9 +6,9 @@
 
 A .NET 10 console application that recursively converts FLAC files to 320kbps MP3s while copying existing MP3s as-is. Includes automated ffmpeg dependency management, progress tracking, dual logging, and retry capabilities.
 
-This tool is designed for users who want to convert their music libraries from FLAC to MP3 format while preserving existing MP3 files. It provides a seamless experience with automatic ffmpeg installation, real-time progress updates, and comprehensive logging.
+This tool is designed for users who want to convert their music libraries from FLAC to MP3 format while preserving existing lossless files. It provides a seamless experience with automatic ffmpeg installation, real-time progress updates, and comprehensive logging.
 
-I created this to get around the issue I have where I want to be able to import my high-resolution FLAC library into my Apple Music for use on my iPhone for integration into other existing hardware, like cars, home media systems, and other bits and pieces, I wanted to do this without having to water down my originals at all which are all stored as FLAC files in my home NAS
+I created this to get around the issue I have where I want to be able to import my library into existing systems that't can't handle flacc, like cars, home media systems, and other bits and pieces, I wanted to do this without having to water down my originals at all which are all stored as FLAC files in my home NAS
 
 ## Features
 
